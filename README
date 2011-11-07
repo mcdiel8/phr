@@ -4,3 +4,30 @@ Materia: Tecnologías Emergentes
 
 Requisitos
 
+Hospitales
+
+PUBLICO: Home, Doctores (Especialidades)
+    - Registro (Doctores, Pacientes) <-- Enviar correo al paciente que se registra, tambien al cancelar una cita
+    - Citas (Como en Lote, ver primero sin tener que loguearse o registarse)
+        [Altas, Bajas (Cancelaciones), Cambios (Reagendar)]
+    - Pruebas de integracion
+
+ROLES: ADMIN, DOCTOR, ASISTENTE, PACIENTE
+
+SEGURIDAD: 
+    ADMIN: [Doctores, Asistentes, Paciente]
+    DOCTOR: [Su Asistente, Paciente] -> Buscar y asignarse un Asistente
+    ASISTENTE: [Paciente]
+
+RELACION MUCHOS A MUCHOS: DOCTORES Y ASISTENTES
+
+CITAS: Por Semana y Por Mes
+
+REPORTES
+1) Busqueda de pacientes (Reporte Interno)
+2) Archivo Clinico Electronico
+3) Reporte de Doctores  (Reporte Interno)
+4) Historial Paciente
+5) Citas de doctor por Semana y Mes
+6) Cancelaciones por Doctor
+7) Reagendas por Doctor
