@@ -14,13 +14,54 @@
 		<link rel="apple-touch-icon" sizes="114x114" href="${resource(dir: 'images', file: 'apple-touch-icon-retina.png')}">
 		<link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">
 		<link rel="stylesheet" href="${resource(dir: 'css', file: 'mobile.css')}" type="text/css">
+                <r:layoutResources/>
 		<g:layoutHead/>
 	</head>
 	<body>
-		<div id="grailsLogo" role="banner"><a href="http://grails.org"><img src="${resource(dir: 'images', file: 'grails_logo.png')}" alt="Grails"/></a></div>
+                <div class="header">
+                  <div id="grailsLogo"><a href="${createLink(uri: '/')}"><img src="images/logo.png" alt="" title="" width="162" height="54" border="0" /></a></div>
+
+                  <div class="right_header">
+
+                    <div class="top_menu">
+                      <sec:ifLoggedIn>
+                          <a class="login"><sec:username /></a>
+                          <a class="login_out" href="${createLink(controller:'logout')}">salir</a>
+                        </sec:ifLoggedIn>
+                      <sec:ifNotLoggedIn>
+                          <a href="${createLink(uri: '/login/auth')}" class="login">login</a>
+                          <a href="#" class="sign_up">registro</a>
+                      </sec:ifNotLoggedIn>
+                    </div>
+
+                    <div id="menu">
+                      <ul>                                              
+                        <li><a class="current" href="${createLink(uri: '/login/auth')}" title="">Inicio</a></li>
+                        <li><a href="#" title="">Servicios</a></li>
+                        <li><a href="#" title="">Acerca de...</a></li>
+                        <li><a href="#" title="">Contactanos</a></li>
+                      </ul>
+                    </div>
+
+                  </div>
+
+                </div>
+          
 		<g:layoutBody/>
-		<div class="footer" role="contentinfo"></div>
+                  
+                <div id="footer">
+                    <div class="copyright">
+                      <img src="images/footer_logo.gif" alt="" title="" />
+                    </div>
+
+                    <div class="center_footer">
+                      &copy; Personal Health Record 2011
+                    </div>
+                </div>
+                  
+                  
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
+                <r:layoutResources/>
 		<g:javascript library="application"/>
 	</body>
 </html>
